@@ -1,4 +1,9 @@
 package utfconverter;
 
-public class UTFtoCodePointConverter {
+import java.io.UnsupportedEncodingException;
+
+public class UTFtoCodePointConverter  {
+    public static int convertToCodePoint(String utfCharacter) throws UnsupportedEncodingException{
+        return 0;
+    }
 }

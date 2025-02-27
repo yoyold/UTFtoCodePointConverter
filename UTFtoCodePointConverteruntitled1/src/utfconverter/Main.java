@@ -16,7 +16,7 @@ public class Main {
 
             try {
                 int codePoint = UTFConverter.getCodePoint(input);
-                System.out.printf("Code Point for '%s' is: U+%04X (%d)%n",
+                System.out.printf("Code Point for '%s' is: U+%X (%d)%n",
                         input, codePoint, codePoint);
             } catch (IOException e) {
                 System.out.println("Error: " + e.getMessage());

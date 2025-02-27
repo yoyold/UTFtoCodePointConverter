@@ -5,8 +5,8 @@ import java.io.IOException;
 public class UTFConverter {
     /**
      * Converts a string to its Unicode code point.
-     * @param input The input string (should contain a single character)
-     * @return The Unicode code point of the first character
+     * @param input The input string
+     * @return The Unicode code point of the character
      * @throws IOException If the input is invalid
      */
     public static int getCodePoint(String input) throws IOException {
@@ -14,13 +14,16 @@ public class UTFConverter {
             throw new IOException("Input cannot be empty");
         }
 
-        // If the input has multiple characters, only use the first one
-        if (input.length() > 1) {
-            System.out.println("Warning: Multiple characters provided, using only the first one");
-            input = input.substring(0, 1);
-        }
+        // Get the code point count
+        int codePointCount = input.codePointCount(0, input.length());
 
-        // Use Java's built-in code point functionality
-        return input.codePointAt(0);
+        if (codePointCount > 1) {
+            System.out.println("Warning: Multiple characters provided, using only the first one");
+            // Get just the first code point
+            return input.codePointAt(0);
+        } else {
+            // Handle a single code point correctly, even if it's a surrogate pair
+            return input.codePointAt(0);
+        }
     }
 }
